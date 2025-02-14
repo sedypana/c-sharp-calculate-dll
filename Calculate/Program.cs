@@ -11,7 +11,7 @@ namespace Calculate
     {
         static void Main(string[] args)
         {
-            Calculator calculator = new Calculator();
+            DllFile calculator = new DllFile();
             int ex = 10;
             while (ex != 0)
             {

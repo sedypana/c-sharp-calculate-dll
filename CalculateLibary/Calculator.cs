@@ -6,50 +6,40 @@ using System.Threading.Tasks;
 
 namespace CalculateLibary
 {
-    public class Calculator
+    
+    public class DllFile
     {
-        public double Sum(double a, double b)
+        public static int GetQuantityForProduct(int productType, int materialType, int count, float width, float lenght)
         {
-            return a + b;
-        }
-
-        public double Sub(double a, double b)
-        {
-            return a - b;
-        }
-
-        public double Mult(double a, double b)
-        {
-            return a * b;
-        }
-
-        public double Div(double a, double b)
-        {
-            double ex = 0;
-            if (b == 0)
+            double result = -1;
+            switch (productType)
             {
-                throw new DivideByZeroException("Деление на ноль невозможно.");
+                case 1:
+                    result = width * lenght * count * 1.1;
+                    break;
+                case 2:
+                    result = width * lenght * count * 2.5;
+                    break;
+                    case 3:
+                    result = width * lenght * count * 8.43;
+                    break;
+                    default:
+                    return -1;
             }
-            else
+            switch(materialType)
             {
-                ex = a / b;
+                case 1:
+                    result *= 1.883;
+                    break;
+                    case 2:
+                    result *= 1.8012;
+                    break;
+                    default :
+                    return -1;
             }
-            return ex;
+            return (int)Math.Ceiling(result);
+            
         }
 
-        public double Pow(double a, double b)
-        {
-            return Math.Pow(a, b);
-        }
-
-        public double Log(double a, double b)
-        {
-            return Math.Log(a, b);
-        }
-
-        public double Sin(double a)
-        {
-            return Math.Sin(a);
-        }
     }
 }
